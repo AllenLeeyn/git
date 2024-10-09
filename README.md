@@ -61,7 +61,7 @@ PS C:\Users\leeyn\work\hello> git commit -m "first commit"
 ```
 
 - Change the hello.sh content to the following:
-```console
+```powershell
 PS C:\Users\leeyn\work\hello> cat hello.sh
 #!/bin/bash
 
@@ -69,7 +69,7 @@ echo "Hello, $1"
 ```
 
 - Stage the changed file and commit the changes, the working tree should be clean.
-```console
+```powershell
 PS C:\Users\leeyn\work\hello> git add hello.sh
 warning: in the working copy of 'hello.sh', LF will be replaced by CRLF the next time Git touches it
 PS C:\Users\leeyn\work\hello> git commit -m "second commit"
@@ -78,7 +78,7 @@ PS C:\Users\leeyn\work\hello> git commit -m "second commit"
 ```
 
 - Modify the hello.sh file to include comments and stage it.
-```console
+```powershell
 PS C:\Users\leeyn\work\hello> cat .\hello.sh 
 #!/bin/bash
 
@@ -89,7 +89,7 @@ echo "Hello, $name"
 
 - Make two separate commits:
 - The first commit should be for the comment in line 3.
-```console
+```powershell
 PS C:\Users\leeyn\work\hello> git add -p hello.sh
 warning: in the working copy of 'hello.sh', LF will be replaced by CRLF the next time Git touches it
 warning: in the working copy of 'hello.sh', LF will be replaced by CRLF the next time Git touches it
@@ -123,7 +123,7 @@ PS C:\Users\leeyn\work\hello> git commit -m "comment on default value"
 ```
 
 - The second commit should include changes made to lines 4 and 5.
-```console
+```powershell
 PS C:\Users\leeyn\work\hello> git add hello.sh
 warning: in the working copy of 'hello.sh', LF will be replaced by CRLF the next time Git touches it
 PS C:\Users\leeyn\work\hello> git diff --staged
@@ -149,6 +149,6 @@ PS C:\Users\leeyn\work\hello> git commit -m "initialise name and echo"
 
 ## task
 - subtask
-```console
+```powershell
 code
 ```
