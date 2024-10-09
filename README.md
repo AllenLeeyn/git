@@ -123,7 +123,7 @@ PS C:\Users\leeyn\work\hello> git commit -m "comment on default value"
 ```
 
 - The second commit should include changes made to lines 4 and 5.
-```git
+```powershell
 PS C:\Users\leeyn\work\hello> git add hello.sh
 warning: in the working copy of 'hello.sh', LF will be replaced by CRLF the next time Git touches it
 PS C:\Users\leeyn\work\hello> git diff --staged
