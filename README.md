@@ -2,7 +2,7 @@
 
 ## Setting Up Git
 - Configure Git with your username and email address.
-```console
+```powershell
 leeyn@SKUllZ MINGW64 ~
 $ git config user.name
 leeyn
