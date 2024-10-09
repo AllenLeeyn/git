@@ -2,7 +2,7 @@
 
 ## Setting Up Git
 - Configure Git with your username and email address.
-```powershell
+```console
 leeyn@SKUllZ MINGW64 ~
 $ git config user.name
 leeyn
@@ -30,19 +30,19 @@ $ cd hello
 ```
 
 - Inside this directory, generate a file titled hello.sh and input the following content: 'echo "Hello, World"'
-```console
+```powershell
 PS C:\Users\leeyn\work\hello> cat hello.sh
 echo "Hello, World"
 ```
 
 - Initialize the git repository in the hello directory.
-```console
+```powershell
 PS C:\Users\leeyn\work\hello> git init
 Initialized empty Git repository in C:/Users/leeyn/work/hello/.git/
 ```
 
 - Check the status and act accordingly with the output of the executed command.
-```console
+```powershell
 PS C:\Users\leeyn\work\hello> git status
 On branch master
 
