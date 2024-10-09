@@ -2,7 +2,7 @@
 
 ## Setting Up Git
 - Configure Git with your username and email address.
-''''
+'
 leeyn@SKUllZ MINGW64 ~
 $ git config user.name
 leeyn
@@ -10,7 +10,7 @@ leeyn
 leeyn@SKUllZ MINGW64 ~
 $ git config user.email
 leeyn.shun@gmail.com
-''''
+'
 ---
 
 ## Git commits to commit
