@@ -850,17 +850,14 @@ PS C:\Users\leeyn\work\hello> git log --oneline --graph --all
 - Understanding Fast-Forwarding and Differences:
     Explain fast-forwarding and the difference between merging and rebasing.
 
-    Fast-fowarding 
-        When there are no new commits on 'A' branch, while there are new commits on 'B'. (No diverting branches)
-        Git simply moves the 'A' branch pointer to the latest commit of 'B'
+    Fast-fowarding: When there are no new commits on 'A' branch, while there are new commits on 'B'. (No diverting branches)
+    Git simply moves the 'A' branch pointer to the latest commit of 'B'
 
-    Merging
-        Merging takes the changes from one branch and integrate them into another branch.
-        The history/ commits of both branches will be preserve.
+    Merging takes the changes from one branch and integrate them into another branch.
+    The history/ commits of both branches will be preserve.
 
-    Rebasing
-        Rebasing combines a sequence of commits into a new base commit.
-        It rewrites another branch's commit history with the current one.
+    Rebasing combines a sequence of commits into a new base commit.
+    It rewrites another branch's commit history with the current one.
 
 | Feature | Merging | Rebasing |
 | ------- | ------- | -------- |
