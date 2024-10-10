@@ -863,7 +863,7 @@ Rebasing
     It rewrites another branch's commit history with the current one.
 
 | Feature | Merging | Rebasing |
-| --- | --- |
+| ------- | ------- | -------- |
 | Commit History | Non-Linear; shows diverging branches | Linear; integrates changes on top |
 | Merge Commit | Create a merge commit | No merge commit created |
 | conflict Resolution | Resolves conflicts once at the merge | Resolves conflicts at each commit |
