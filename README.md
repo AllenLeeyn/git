@@ -874,70 +874,213 @@ Rebasing
 ## Local and remote repositories
 - In the work/ directory, make a clone of the repository hello as cloned_hello. (Do not use copy command)
 ```powershell
+PS C:\Users\leeyn\work> git clone hello cloned_hello
+Cloning into 'cloned_hello'...
+done.
 ```
 
 - Show the logs for the cloned repository.
 ```powershell
+PS C:\Users\leeyn\work> cd .\cloned_hello\
+PS C:\Users\leeyn\work\cloned_hello> git log --oneline --all --graph
+* a2f0608 (HEAD -> master, origin/master, origin/greet, origin/HEAD) add comments in Makefile
+* f6424e5 modify hello.sh to use greeter
+* 000d473 adding greeter.sh
+* a3b5132 adding README.md
+* 458356d create Makefile
+* 85b6663 adding author indo
+* 08cb10a (tag: v1) initialise name and echo
+* f0993d5 (tag: v1-beta) comment on default value
+* e1cc968 second commit
+* 4e1dfc2 first commit
 ```
 
 - Display the name of the remote repository and provide more information about it.
 ```powershell
+PS C:\Users\leeyn\work\cloned_hello> git remote
+origin
+PS C:\Users\leeyn\work\cloned_hello> git remote show origin
+* remote origin
+  Fetch URL: C:/Users/leeyn/work/hello
+  Push  URL: C:/Users/leeyn/work/hello
+  HEAD branch: master
+  Remote branches:
+    greet  tracked
+    master tracked
+  Local branch configured for 'git pull':
+    master merges with remote master
+  Local ref configured for 'git push':
+    master pushes to master (up to date)
 ```
 
 - List all remote and local branches in the cloned_hello repository.
 ```powershell
+PS C:\Users\leeyn\work\cloned_hello> git branch --all
+* master
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/greet
+  remotes/origin/master
 ```
 
 - Make changes to the original repository, update the README.md file with the provided content, and commit the changes.
 ```powershell
-```
-
+PS C:\Users\leeyn\work\hello> cat README.md
 This is the Hello World example from the git project.
 (changed in the original)
+PS C:\Users\leeyn\work\hello> git add README.md
+PS C:\Users\leeyn\work\hello> git commit -m "changed in orginal"
+[master a806bdc] changed in orginal
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+```
 
 - Inside the cloned repository (cloned_hello), fetch the changes from the remote repository and display the logs. Ensure that commits from the hello repository are included in the logs.
 ```powershell
+PS C:\Users\leeyn\work\cloned_hello> git fetch origin
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+Unpacking objects: 100% (3/3), 358 bytes | 18.00 KiB/s, done.
+From C:/Users/leeyn/work/hello
+   a2f0608..a806bdc  master     -> origin/master
+PS C:\Users\leeyn\work\cloned_hello> git log --oneline --all --graph
+* a806bdc (origin/master, origin/HEAD) changed in orginal
+* a2f0608 (HEAD -> master, origin/greet) add comments in Makefile
+* f6424e5 modify hello.sh to use greeter
+* 000d473 adding greeter.sh
+* a3b5132 adding README.md
+* 458356d create Makefile
+* 85b6663 adding author indo
+* 08cb10a (tag: v1) initialise name and echo
+* f0993d5 (tag: v1-beta) comment on default value
+* e1cc968 second commit
+* 4e1dfc2 first commit
 ```
 
 - Merge the changes from the remote main branch into the local main branch.
 ```powershell
+PS C:\Users\leeyn\work\cloned_hello> git merge origin\master
+merge: origin\master - not something we can merge
+PS C:\Users\leeyn\work\cloned_hello> git merge origin/master
+Updating a2f0608..a806bdc
+Fast-forward
+ README.md | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 ```
 
 - Add a local branch named greet tracking the remote origin/greet branch.
 ```powershell
+PS C:\Users\leeyn\work\cloned_hello> git checkout -b greet origin/greet
+branch 'greet' set up to track 'origin/greet'.
+Switched to a new branch 'greet'
+PS C:\Users\leeyn\work\cloned_hello> git log --oneline --all --graph                          
+* a806bdc (origin/master, origin/HEAD, master) changed in orginal
+* a2f0608 (HEAD -> greet, origin/greet) add comments in Makefile
+* f6424e5 modify hello.sh to use greeter
+* 000d473 adding greeter.sh
+* a3b5132 adding README.md
+* 458356d create Makefile
+* 85b6663 adding author indo
+* 08cb10a (tag: v1) initialise name and echo
+* f0993d5 (tag: v1-beta) comment on default value
+* e1cc968 second commit
+* 4e1dfc2 first commit
 ```
 
 - Add a remote to your Git repository and push the main and greet branches to the remote.
 ```powershell
+PS C:\Users\leeyn\work\cloned_hello> git remote add gritLab https://01.gritlab.ax/git/ylee/git
+PS C:\Users\leeyn\work\cloned_hello> git remote -v
+gritLab https://01.gritlab.ax/git/ylee/git (fetch)
+gritLab https://01.gritlab.ax/git/ylee/git (push)
+origin  C:/Users/leeyn/work/hello (fetch)
+origin  C:/Users/leeyn/work/hello (push)
+PS C:\Users\leeyn\work\cloned_hello> git push -u gritLab master
+Enumerating objects: 35, done.
+Counting objects: 100% (35/35), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (26/26), done.
+Writing objects: 100% (35/35), 3.23 KiB | 254.00 KiB/s, done.
+Total 35 (delta 3), reused 12 (delta 0), pack-reused 0 (from 0)
+remote: . Processing 1 references
+remote: Processed 1 references in total
+To https://01.gritlab.ax/git/ylee/git
+ * [new branch]      master -> master
+branch 'master' set up to track 'gritLab/master'.
+PS C:\Users\leeyn\work\cloned_hello> git push -u gritLab greet 
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: 
+remote: Create a new pull request for 'greet':
+remote:   https://01.gritlab.ax/git/ylee/git/compare/master...greet
+remote:
+remote: . Processing 1 references
+remote: Processed 1 references in total
+To https://01.gritlab.ax/git/ylee/git
+ * [new branch]      greet -> greet
+branch 'greet' set up to track 'gritLab/greet'.
 ```
 
 ### "What is the single git command equivalent to what you did before to bring changes from remote to local main branch?"
+git pull remote [local-branch]
 
 ## Bare repositories
 - What is a bare repository and why is it needed?
-```powershell
-```
+A bare repository is a git reporsitory without the working directory. It contains the version control and files required to track changes, similar to the content of the .git directory. It is usually stored in a remote location and is useful for collaboration among multiple developers.
 
 - Create a bare repository named hello.git from the existing hello repository.
 ```powershell
+PS C:\Users\leeyn\work> git clone --bare hello hello.git
+Cloning into bare repository 'hello.git'...
+done.
 ```
 
 - Add the bare hello.git repository as a remote to the original repository hello.
 ```powershell
+PS C:\Users\leeyn\work\hello> git remote add bareHello ../hello.git
+PS C:\Users\leeyn\work\hello> git remote -v
+bareHello       ../hello.git (fetch)
+bareHello       ../hello.git (push)
 ```
 
 - Change the README.md file in the original repository with the provided content:
 ```powershell
-```
-
+PS C:\Users\leeyn\work\hello> cat README.md   
 This is the Hello World example from the git project.
 (Changed in the original and pushed to shared)
+```
 
 - Commit the changes and push them to the shared repository.
 ```powershell
+PS C:\Users\leeyn\work\hello> git add README.md
+PS C:\Users\leeyn\work\hello> git commit -m "shared README"
+[master 0762916] shared README
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ PS C:\Users\leeyn\work\hello> git push --set-upstream bareHello master
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 396 bytes | 396.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To ../hello.git
+   a806bdc..0762916  master -> master
+branch 'master' set up to track 'bareHello/master'.
+PS C:\Users\leeyn\work\hello> git push bareHello
+Everything up-to-date
 ```
 
 - Switch to the cloned repository cloned_hello and pull down the changes just pushed to the shared repository.
 ```powershell
+PS C:\Users\leeyn\work\cloned_hello> git remote add bareHello ../hello.git
+PS C:\Users\leeyn\work\cloned_hello> git pull bareHello master
+From ../hello
+ * branch            master     -> FETCH_HEAD
+Updating a806bdc..0762916
+Fast-forward
+ README.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ PS C:\Users\leeyn\work\cloned_hello> cat README.md
+This is the Hello World example from the git project.
+(Changed in the original and pushed to shared)
 ```
 ---
