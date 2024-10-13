@@ -188,6 +188,19 @@ e1cc968 second commit
 PS C:\Users\leeyn\work\hello> git log --oneline -n 2
 08cb10a (HEAD -> master) initialise name and echo
 f0993d5 comment on default value
+PS C:\Users\leeyn\work\hello> git log --since="5 minutes ago" -n 2 
+PS C:\Users\leeyn\work\hello> git log --since="3 days ago" -n 2   
+commit 07629160d81de7566613fbdf8bda2862621f1b5e (HEAD -> master, bareHello/master)
+Author: leeyn <leeyn.shun@gmail.com>
+Date:   Thu Oct 10 13:11:51 2024 +0300
+
+    shared README
+
+commit a806bdc6f63dec9093e3f0824dfed02d70784be8
+Author: leeyn <leeyn.shun@gmail.com>
+Date:   Thu Oct 10 12:25:28 2024 +0300
+
+    changed in orginal
 ```
 
 - Personalized Format:
