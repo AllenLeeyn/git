@@ -146,6 +146,7 @@ PS C:\Users\leeyn\work\hello> git commit -m "initialise name and echo"
 ## History
 - Show the history of the working directory.
 ```powershell
+PS C:\Users\leeyn\work\hello> git log 
 commit 08cb10ab36e02bb78d166a6a59cc90c7c25570ea (HEAD -> master)
 Author: leeyn <leeyn.shun@gmail.com>
 Date:   Wed Oct 9 09:49:39 2024 +0300
