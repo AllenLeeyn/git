@@ -146,7 +146,6 @@ PS C:\Users\leeyn\work\hello> git commit -m "initialise name and echo"
 ## History
 - Show the history of the working directory.
 ```powershell
-PS C:\Users\leeyn\work\hello> git log 
 commit 08cb10ab36e02bb78d166a6a59cc90c7c25570ea (HEAD -> master)
 Author: leeyn <leeyn.shun@gmail.com>
 Date:   Wed Oct 9 09:49:39 2024 +0300
@@ -188,10 +187,6 @@ e1cc968 second commit
 PS C:\Users\leeyn\work\hello> git log --oneline -n 2
 08cb10a (HEAD -> master) initialise name and echo
 f0993d5 comment on default value
-PS C:\Users\leeyn\work\hello> git log --since="5 minutes ago" -n 2 
-PS C:\Users\leeyn\work\hello> git log --since="3 days ago" -n 2 --oneline
-0762916 (HEAD -> master, bareHello/master) shared README
-a806bdc changed in orginal
 ```
 
 - Personalized Format:
@@ -210,7 +205,8 @@ PS C:\Users\leeyn\work\hello> git log --pretty=format:"* %h %ad | %s (%d) [%an]"
     Revert the working tree to its initial state, as captured in the first snapshot, 
     and then print the content of the hello.sh file.
 ```powershell
-PS C:\Users\leeyn\work\hello> git reset --hard 4e1dfc2
+PS C:\Users\leeyn\work\hello> git checkout 4e1dfc2    
+Note: switching to '4e1dfc2'.
 HEAD is now at 4e1dfc2 first commit
 PS C:\Users\leeyn\work\hello> cat hello.sh
 echo "Hello, World"
@@ -219,7 +215,8 @@ echo "Hello, World"
 - Restore Second Recent Snapshot:
     Revert the working tree to the second most recent snapshot and print the content of the hello.sh file.
 ```powershell
-PS C:\Users\leeyn\work\hello> git reset --hard f0993d5
+PS C:\Users\leeyn\work\hello> git checkout f0993d5
+Previous HEAD position was 4e1dfc2 first commit
 HEAD is now at f0993d5 comment on default value
 PS C:\Users\leeyn\work\hello> cat hello.sh
 #!/bin/bash
@@ -231,18 +228,9 @@ PS C:\Users\leeyn\work\hello> cat hello.sh
     Ensure that the working directory reflects the latest version of the hello.sh file present in the main branch, 
     without referring to specific commit hashes.
 ```powershell
-PS C:\Users\leeyn\work\hello> git reflog
-f0993d5 (HEAD -> master) HEAD@{0}: reset: moving to f0993d5
-e1cc968 HEAD@{1}: reset: moving to e1cc968
-4e1dfc2 HEAD@{2}: reset: moving to 4e1dfc2
-08cb10a HEAD@{3}: commit: initialise name and echo
-f0993d5 (HEAD -> master) HEAD@{4}: commit: comment on default value
-e1cc968 HEAD@{5}: reset: moving to HEAD
-e1cc968 HEAD@{6}: commit: second commit
-4e1dfc2 HEAD@{7}: reset: moving to HEAD
-4e1dfc2 HEAD@{8}: commit (initial): first commit
-PS C:\Users\leeyn\work\hello> git reset --hard 08cb10a
-HEAD is now at 08cb10a initialise name and echo
+PS C:\Users\leeyn\work\hello> git checkout master
+Previous HEAD position was f0993d5 comment on default value
+Switched to branch 'master'
 PS C:\Users\leeyn\work\hello> cat .\hello.sh
 #!/bin/bash
 
@@ -287,7 +275,6 @@ Or undo this operation with:
 
 Turn off this advice by setting config variable advice.detachedHead to false
 
-HEAD is now at f0993d5 comment on default value
 HEAD is now at f0993d5 comment on default value
 PS C:\Users\leeyn\work\hello> git checkout v1
 Previous HEAD position was f0993d5 comment on default value
